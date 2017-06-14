@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.2'
+    defaultConfig {
+        applicationId "com.bluecats.services"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    compile 'com.bluecats:bluecats-android-sdk:2.0.5'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.google.android.gms:play-services:9.2.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:mediarouter-v7:25.3.1'
+    compile 'com.android.support:animated-vector-drawable:25.3.1'
+}
+
+
+
+
+
+
+
+
+
+
+
+
