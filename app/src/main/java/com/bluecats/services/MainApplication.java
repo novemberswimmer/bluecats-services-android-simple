@@ -17,7 +17,7 @@ import android.text.TextUtils;
 public class MainApplication extends Application {
 	protected static final String TAG = "MainApplication";
 	
-	public static final String BLUECATS_APP_TOKEN = "BLUECATS_APP_TOKEN";
+	public static final String BLUECATS_APP_TOKEN = "ef6a7c29-3702-4ff7-96f5-8eccc17e5e74";
 
 	@Override
 	public void onCreate() {

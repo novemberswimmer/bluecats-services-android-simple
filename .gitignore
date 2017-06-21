@@ -1,6 +1,6 @@
 .idea/modules.xml
 .idea/misc.xml
-
+.idea/**.*
 # Built application files
 *.apk
 *.ap_

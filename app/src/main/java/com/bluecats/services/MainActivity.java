@@ -12,6 +12,8 @@ import com.bluecats.services.interfaces.BlueCatsSDKInterfaceService;
 import com.bluecats.services.interfaces.IBlueCatsSDKInterfaceServiceCallback;
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.*;
 import android.os.Bundle;
 import android.util.*;
@@ -107,15 +109,17 @@ public class MainActivity extends Activity {
 		@Override
 		public void didExitSite(final BCSite site) {
 			Log.d(TAG, "onDidExitSite");
+			String tittle = "Beacon Payment";
+			String body = "Beacon Payment was just made!";
+			String subject = "Beacon Payment";
 
-			runOnUiThread(new Runnable() {
-				@Override
-				public void run() {
-					if (mTxtMessage.getText() != null) {
-						mTxtMessage.setText(String.format("onDidExitSite %s\n", site.getName()) + mTxtMessage.getText().toString());
-					}
-				}
-			});
+			NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+			Notification notify=new Notification.Builder
+					(getApplicationContext()).setContentTitle(tittle).setContentText(body).
+					setContentTitle(subject).setSmallIcon(R.drawable.ic_launcher).build();
+
+			notify.flags |= Notification.FLAG_AUTO_CANCEL;
+			notif.notify(0, notify);
 		}
 
 		@Override
@@ -127,7 +131,7 @@ public class MainActivity extends Activity {
 		public void didExitBeacons(final List<BCBeacon> beacons) {
 			Log.d(TAG, "didExitBeacons");
 
-			runOnUiThread(new Runnable() {
+			/*runOnUiThread(new Runnable() {
 				@Override
 				public void run() {
 					for (BCBeacon beacon: beacons) {
@@ -144,7 +148,20 @@ public class MainActivity extends Activity {
 						}
 					}
 				}
-			});
+			});*/
+
+			Log.d(TAG, "onDidExitSite");
+			String tittle = "Beacon Payment";
+			String body = "Beacon Payment was just made!";
+			String subject = "Beacon Payment";
+
+			NotificationManager notif=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+			Notification notify=new Notification.Builder
+					(getApplicationContext()).setContentTitle(tittle).setContentText(body).
+					setContentTitle(subject).setSmallIcon(R.drawable.ic_launcher).build();
+
+			notify.flags |= Notification.FLAG_AUTO_CANCEL;
+			notif.notify(0, notify);
 		}
 
 		@Override
